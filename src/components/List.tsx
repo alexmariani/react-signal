@@ -1,16 +1,13 @@
 import { computed, effect } from "@preact/signals-react";
 import { lista, isLoading } from "./CustomSignal";
-import { Chip } from "@material-tailwind/react";
+import { Chip, Spinner } from "@material-tailwind/react";
+import { SortableTable } from "./SortableTable";
 
 export const List = () => {
     const totale = computed(() => lista?.value?.length ?? 0);
 
     const ShowList = () => {
-        return lista?.value.map((v, i) =>
-            <>
-                <><span key={i}>{v.userId} {v.id} {v.title} {v.completed}</span> <br /></>
-            </>
-        )
+        return <SortableTable header={[{ title: 'Id utente', sortableKey: 'userId' }, { title: 'Id', sortableKey: 'id' }, { title: 'Titolo', sortableKey: 'title' }, { title: 'Completato', sortableKey: 'completed' }]} rows={lista.value} />;
     }
 
 
@@ -21,13 +18,12 @@ export const List = () => {
         <>
             {
                 !isLoading.value ? <>
-                    <div className="flex gap-2 my-2">
-                        <Chip value={totale} />
+                    <div className="flex justify-center gap-2 my-2">
+                        <Chip value={totale} color="red" />
                     </div>
-                    {
-                        <ShowList />
-                    }
-                </> : <span>Loading ...</span>
+                    <ShowList />
+
+                </> : <><Spinner /></>
             }
 
 

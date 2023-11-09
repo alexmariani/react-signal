@@ -19,17 +19,7 @@ export const Wrapper = () => {
             .catch(e => console.error(e))
     }, [])
 
-    const order = () => {
-        isLoading.value = true;
-        lista.value = lista.peek().sort((v1, v2) => {
-            const id1 = v1.id ?? 0;
-            const id2 = v2.id ?? 0;
-            if (id1 > id2 || id2 > id1) return -1;
-            return 0;
-        })
-        isLoading.value = false;
-        console.info("Funge");
-    }
+    
 
 
 
@@ -37,9 +27,9 @@ export const Wrapper = () => {
 
         <Counter></Counter>
 
-        <div className="row">
-            <CustomButtom action={order} variant="filled" >Ordina</CustomButtom>
-        </div>
+        {/* <div className="row">
+            <CustomButtom action={order} variant="filled" color="cyan" >Ordina</CustomButtom>
+        </div> */}
         <List></List>
     </>)
 }
