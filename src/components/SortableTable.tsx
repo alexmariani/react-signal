@@ -2,11 +2,6 @@ import {
     Card
 } from "@material-tailwind/react";
 
-
-
-
-
-
 export const SortableTable = ({ HeaderMap, RowsMap }: { HeaderMap: () => JSX.Element[], RowsMap: () => JSX.Element[] }) => {
     return (
         <Card className="h-full w-full">
