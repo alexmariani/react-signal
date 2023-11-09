@@ -22,13 +22,12 @@ export const Wrapper = () => {
             .catch(e => console.error(e))
     }, [])
 
-    const order = (order: "ASC" | "DESC") => {
+    const order = () => {
         isLoading.value = true;
         lista.value = lista.peek().sort((v1, v2) => {
             const id1 = v1.id ?? 0;
             const id2 = v2.id ?? 0;
-            if (id1 > id2) return order == 'ASC' ? 1: -1;
-            if (id2 > id1) return order == 'DESC' ? -1 : 1;
+            if (id1 > id2 || id2 > id1) return -1;
             return 0;
         })
         isLoading.value = false;
@@ -39,8 +38,7 @@ export const Wrapper = () => {
 
     return (<>
         <Counter count={count}></Counter> <br /> <br />
-        {/* <button onClick={() => order('ASC')}>Filtra ASC</button> */}
-        <button onClick={() => order('DESC')}>Ordina</button><br /> <br />
+        <button onClick={order}>Ordina</button><br /> <br />
         <List lista={lista} isLoading={isLoading} ></List>
     </>)
 }
