@@ -1,5 +1,6 @@
 import { computed, effect } from "@preact/signals-react";
 import { lista, isLoading } from "./CustomSignal";
+import { Chip } from "@material-tailwind/react";
 
 export const List = () => {
     const totale = computed(() => lista?.value?.length ?? 0);
@@ -20,8 +21,9 @@ export const List = () => {
         <>
             {
                 !isLoading.value ? <>
-                    {totale} < br />
-
+                    <div className="flex gap-2 my-2">
+                        <Chip value={totale} />
+                    </div>
                     {
                         <ShowList />
                     }

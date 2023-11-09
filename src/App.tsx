@@ -2,11 +2,13 @@ import './App.css'
 import { Wrapper } from './components/Wrapper'
 
 function App() {
- 
+
 
   return (
     <>
-       <Wrapper></Wrapper> 
+      <div className="container mx-auto">
+        <Wrapper></Wrapper>
+      </div>
     </>
   )
 }

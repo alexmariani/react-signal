@@ -3,6 +3,7 @@ import { List } from "./List"
 import { useEffect } from "react";
 import { Counter } from "./Counter";
 import { isLoading, lista } from "./CustomSignal";
+import { CustomButtom } from "../ui/CustomButton";
 
 
 
@@ -33,8 +34,12 @@ export const Wrapper = () => {
 
 
     return (<>
-        <Counter></Counter> <br /> <br />
-        <button onClick={order}>Ordina</button><br /> <br />
+
+        <Counter></Counter>
+
+        <div className="row">
+            <CustomButtom action={order} variant="filled" >Ordina</CustomButtom>
+        </div>
         <List></List>
     </>)
 }
