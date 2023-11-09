@@ -1,9 +1,8 @@
 
-import { List } from "./List"
 import { useEffect } from "react";
 import { Counter } from "./Counter";
-import { isLoading, lista } from "./CustomSignal";
-import { CustomButtom } from "../ui/CustomButton";
+import { isLoading, lista } from "../utility/custom-signal";
+import { List } from "./List";
 
 
 
@@ -19,17 +18,12 @@ export const Wrapper = () => {
             .catch(e => console.error(e))
     }, [])
 
-    
+
 
 
 
     return (<>
-
         <Counter></Counter>
-
-        {/* <div className="row">
-            <CustomButtom action={order} variant="filled" color="cyan" >Ordina</CustomButtom>
-        </div> */}
         <List></List>
     </>)
 }

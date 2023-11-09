@@ -1,4 +1,4 @@
-import { count } from "./CustomSignal";
+import { count } from "../utility/custom-signal";
 import { Chip } from "@material-tailwind/react";
 import { CustomButtom } from "../ui/CustomButton";
 
