@@ -1,9 +1,7 @@
-import { Signal, computed, effect } from "@preact/signals-react";
+import { computed, effect } from "@preact/signals-react";
+import { lista, isLoading } from "./CustomSignal";
 
-
-
-
-export const List = ({ lista, isLoading }: { lista: Signal<{ userId?: number, id?: number, title?: string, completed?: boolean }[]>, isLoading: Signal<boolean> }) => {
+export const List = () => {
     const totale = computed(() => lista?.value?.length ?? 0);
 
     const ShowList = () => {
@@ -23,7 +21,7 @@ export const List = ({ lista, isLoading }: { lista: Signal<{ userId?: number, id
             {
                 !isLoading.value ? <>
                     {totale} < br />
-                   
+
                     {
                         <ShowList />
                     }

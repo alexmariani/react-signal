@@ -1,17 +1,13 @@
 
-// import { Counter } from "./Counter"
-import { useSignal } from "@preact/signals-react";
 import { List } from "./List"
 import { useEffect } from "react";
 import { Counter } from "./Counter";
+import { isLoading, lista } from "./CustomSignal";
+
+
 
 
 export const Wrapper = () => {
-    const count = useSignal(0);
-    const lista = useSignal<{ userId?: number, id?: number, title?: string, completed?: boolean }[]>([]);
-    const isLoading = useSignal<boolean>(false);
-
-
     useEffect(() => {
         isLoading.value = true;
         fetch('https://jsonplaceholder.typicode.com/todos/')
@@ -37,8 +33,9 @@ export const Wrapper = () => {
 
 
     return (<>
-        <Counter count={count}></Counter> <br /> <br />
+        <Counter></Counter> <br /> <br />
         <button onClick={order}>Ordina</button><br /> <br />
-        <List lista={lista} isLoading={isLoading} ></List>
+        <List></List>
     </>)
 }
+

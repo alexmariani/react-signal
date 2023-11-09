@@ -1,7 +1,8 @@
-import { Signal, computed } from "@preact/signals-react";
+import { computed } from "@preact/signals-react";
+import { count } from "./CustomSignal";
 
-export const Counter = ({ count }: { count: Signal }) => {
-    computed(()=> console.info(count.value));
+export const Counter = () => {
+    computed(() => console.info(count.value));
     return (<>
         {count.value} <br />
         <button onClick={() => count.value++}>+</button>
