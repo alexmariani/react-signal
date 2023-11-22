@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon, ListBulletIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Chip, Spinner, Typography } from "@material-tailwind/react";
 import { computed } from "@preact/signals-react";
 import { CustomButtom } from "../ui/CustomButton";
